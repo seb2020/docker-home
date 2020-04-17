@@ -1,4 +1,4 @@
-docker-pihole/etc-dnsmasq.d/*
-docker-pihole/etc-pihole/*
-docker-jeedom/mysql/*
-docker-jeedom/jeedom-html/*
+docker-pihole/etc-dnsmasq.d/
+docker-pihole/etc-pihole/
+docker-jeedom/mysql/
+docker-jeedom/jeedom-html/
