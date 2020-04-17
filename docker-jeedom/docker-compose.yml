@@ -1,0 +1,32 @@
+---
+version: "2.1"
+services:
+  mariadb:
+    image: linuxserver/mariadb
+    container_name: jeedom-mariadb
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MYSQL_ROOT_PASSWORD=lmhYk99TFOtez98jzRVq
+      - TZ=Europe/zurich
+      - MYSQL_DATABASE=jeedom
+      - MYSQL_USER=jeedom
+      - MYSQL_PASSWORD=4a4WJscamLDtqc46nKKB
+    volumes:
+      - /data/docker-jeedom/mysql:/config
+    ports:
+      - 13306:3306
+    restart: unless-stopped
+
+  jeedom:
+    image: jugou28/jeedom
+    container_name: jeedom-server
+    environment:
+      - ROOT_PASSWORD=ySFvzOnIJZ9KLnxr7ABt
+    volumes:
+      - /data/docker-jeedom/jeedom-html:/var/www/html
+    ports:
+      - 9080:80
+    devices:
+      - "/dev/serial/by-id/usb-0658_0200-if00:/dev/ttyACM0"
+    restart: unless-stopped
